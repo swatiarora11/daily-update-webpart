@@ -1,0 +1,47 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "daily-update-webpart-client-side-solution",
+    "id": "6d2a401f-2acf-4e16-911a-8bca94476210",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.13.1"
+    },
+    "webApiPermissionRequests": [
+      {
+      "resource": "Microsoft Graph",
+      "scope": "Sites.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "TeamsActivity.Send"
+      },
+      {  
+        "resource": "Microsoft Graph",  
+        "scope": "Group.Read.All"  
+      },  
+      {  
+        "resource": "Microsoft Graph",  
+        "scope": "GroupMember.Read.All"  
+      },
+      {  
+        "resource": "Microsoft Graph",  
+        "scope": "TeamsAppInstallation.ReadForUser"  
+      }  
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/daily-update-webpart.sppkg"
+  }
+}
