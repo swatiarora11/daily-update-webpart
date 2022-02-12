@@ -1,6 +1,6 @@
 # Daily Update Webpart - Overview and Deployment Guide
 
-**SPFx Updates Webpart** is a client side web part built using Sharepoint Framework (SPFx). This webpart has integration with a sharepoint list to pull prefed updates and display them on given dates. This webpart can also be used by admins to send activity feed in teams to keep the employees engaged and informed about the latest updates.
+**Daily Update Webpart** is a client side web part built using Sharepoint Framework (SPFx). This webpart has integration with a sharepoint list to pull prefed updates and display them on given dates. This webpart can also be used by admins to send activity feed in teams to keep the employees engaged and informed about the latest updates.
 
 The webpart leverages the tight integration between SharePoint Online and Microsoft Teams to support scenarios like daily updates, announcements, relevant news, thought of the day, corporate communication etc.
 
@@ -13,7 +13,7 @@ To begin, you will need:
 
 ## Anatomy of Webpart
 
-An overview snapshot of the **SPFx Updates Webpart** highlighting its major sections is shown in the below figure. 
+An overview snapshot of the **Daily Update Webpart** highlighting its major sections is shown in the below figure. 
 <img src="images/webpart overview.png"/>
 Let us dive into few details to understand configuration of this webpart and how it controls the content being shown in various sections of the webpart. Each webpart section and corresponding fields of property pane configuration which affect webpart presentation and functionality is explained below.
 
@@ -31,7 +31,7 @@ All the mappings of webpart sections to corresponding configuration fields are s
 
 ## Deployment Guide
 
-Though **SPFx Updates Webpart** can be used in any Sharepoint Online site, this deployment guide explains the steps required for deployment of this webpart with the help of an example Viva Connections application which is deployed in Sharepoint Online and also available in personal scope of various users of Microosoft Teams.
+Though **Daily Update Webpart** can be used in any Sharepoint Online site, this deployment guide explains the steps required for deployment of this webpart with the help of an example Viva Connections application which is deployed in Sharepoint Online and also available in personal scope of various users of Microosoft Teams.
 
 ### Step 1. Setup Viva Connections
 
@@ -43,7 +43,7 @@ Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/c
 **Note:** Do not create columns with name **ID**, **Title**, **Created by** and **Modified by** as they exist by default in the list <img src="images/Sharepoint Site-list.png"/>
 
 ### Step 3. Upload SPPKG to Sharepoint App Catalog
-1. Download the [Sharepoint Solution Package](https://github.com/swatiarora11/spfx-daily-feed/blob/main/sppkg/daily-update-webpart.sppkg) file from this repository and save the file to your computer.
+1. Download the [Sharepoint Solution Package](https://github.com/swatiarora11/daily-update-webpart/blob/45b8206e94b8308dbf48cbb7acefc90cc048f21d/sppkg/daily-update-webpart.sppkg) file from this repository and save the file to your computer.
 
 2. For uploading, go to **Sharepoint Admin Center -> More features -> Apps -> App Catalog -> Apps for Sharepoint**.
 Upload this file into the **App Catalog** by selecting **Upload**, browsing the file in the downloaded folder and then selecting **Deploy**. <img src="images/App catalog-sharepoint.png"/>
@@ -57,7 +57,7 @@ Once the app package is uploaded, navigate to **API Access** page in **Sharepoin
 1.	Navigate to **App Registrations** in **Azure Portal** and copy the **Application(client) ID** of **Sharepoint Online Client Extensibility Web application Principal** app. We will need this later for installation of Teams App. 
 <img src="images/Azureportal, webapplicationid.png"/>
 
-2.	Download [teams.zip](https://github.com/swatiarora11/spfx-daily-feed/blob/main/sppkg/daily-update-webpart.sppkg) file from this git repository and extract the same to a local folder.
+2.	Download [teams.zip](https://github.com/swatiarora11/daily-update-webpart/blob/45b8206e94b8308dbf48cbb7acefc90cc048f21d/teams.zip) file from this git repository and extract the same to a local folder.
 3.	Change following fields in "developer" section of the downloaded **manifest.json** file to values as appropriate for your organization.
 * name
 * websiteUrl
