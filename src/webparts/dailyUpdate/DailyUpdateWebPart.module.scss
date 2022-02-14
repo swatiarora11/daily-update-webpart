@@ -10,9 +10,9 @@
   .row {
     @include ms-Grid-row;
     @include ms-fontColor-white;
-    //background-color: $ms-color-themePrimary;
+    background-color: $ms-color-themePrimary;
     // background-color: #00A2ED;
-    background-color: #ca301e;
+    // background-color: #ca301e;
     // background-color: #2e37fe;
     padding: 20px;
   }
@@ -47,9 +47,9 @@
 
     // Primary Button
     min-width: 80px;
-    // background-color: $ms-color-themeDark;
+    background-color: $ms-color-themeDark;
     // background-color: #002366;
-    background-color: #8A0000;
+    // background-color: #8A0000;
     border-color: $ms-color-themePrimary;
     color: $ms-color-white;
 
