@@ -81,7 +81,7 @@ Once the app package is uploaded, navigate to **API Access** page under **Advanc
 
 4.	Change the "id" field under "webApplicationInfo" section in the manifest to "Application (client) ID" value of **Sharepoint Online Client Extensibility Web application Principal** as copied in serial 1 above and save **manifest.json** file. 
 
-**Note : If Viva Connections site is already deployed as app in Teams, you must use the same manifest and simply update the "webapplicationinfo" section with Application (client id) as mentioned in step 4 and add "activities" section as shown in the snapshot below**.
+**Note : If Viva Connections site is already deployed as app in Teams, you must use the same manifest and simply update the "webapplicationinfo" section with Application (client id) as mentioned in step 4 and add "activities" section as shown in the snapshot below. You can also refer the manifest file availaible in [teams.zip](https://github.com/swatiarora11/daily-update-webpart/blob/45b8206e94b8308dbf48cbb7acefc90cc048f21d/teams.zip)**.
 <img src="images/Manifest screenshot.png"/>
 
 5.	Create a ZIP package with **manifest.json** and app icon files (**color.png** and **outline.png**). Make sure that there are no nested folders within this ZIP package.
