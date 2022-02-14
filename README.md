@@ -40,7 +40,7 @@ Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/c
 
 ### Step 2. Create SharePoint List
 * Open **Site Contents** page on the Viva Connections site. Select **New -> List** then select **Blank List** and enter the name of the List as "Chairman Speak".
-* Rename the **Title** column to **Author** and add **Live**, **Update** columns to the list and select the type as shown below. <img src="images/sharepoint list-settings.png"/>
+* Rename the **Title** column to **Author** and add **Live**, **Update** columns to the list and select the type as shown below.<img src="images/sharepoint list-settings.png"/>
 **Note:** Do not create columns with name **ID**, **Title**, **Created by** and **Modified by** as they exist by default in the list <img src="images/Sharepoint Site-list.png"/>
 
 ### Step 3. Upload SPPKG to Sharepoint App Catalog
