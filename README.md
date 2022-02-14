@@ -36,7 +36,7 @@ Though **Daily Update Webpart** can be used in any Sharepoint Online site, this 
 ### Step 1. Setup Viva Connections
 
 Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/connections/viva-connections-overview) to get step-by-step guidance on how to setup Viva Connections.
-Note: Viva connections site should be 
+
 
 ### Step 2. Create SharePoint List
 * Open **Site Contents** page on the Viva Connections site. Select **New -> List** then select **Blank List** and enter the name of the List as "Chairman Speak".
@@ -48,15 +48,17 @@ Note: Viva connections site should be
 
 2. For uploading, go to **Sharepoint Admin Center -> More features -> Apps -> App Catalog -> Apps for Sharepoint**.
 Upload this file into the **App Catalog** by selecting **Upload**, browsing the file in the downloaded folder and then selecting **Deploy**. <img src="images/Upload dialog-App catalog.png"/> 
- <img src="images/App catalog-sharepoint.png"/>
-If you do not see an app catalog available, use the instructions [here] https://docs.microsoft.com/en-us/sharepoint/use-app-catalog#step-1-create-the-app-catalog-site-collection to create a new app catalog before continuing.
+<img src="images/Webpart Deploy dailog app catalog.png"/> 
+<img src="images/App catalog-sharepoint.png"/>
+If you do not see an app catalog available, use the instructions [here](https://docs.microsoft.com/en-us/sharepoint/use-app-catalog#step-1-create-the-app-catalog-site-collection) to create a new app catalog before continuing.
 <img src="images/No App Catalog in Sharepoint.png"/>
 
 You will see that **SPFx Update Webpart** is now listed in the **App Catalog**.
+
 Note: At times, provisioning of app catalog may take upto 24 hours
 
 ### Step 4. Grant API Permissions
-Once the app package is uploaded, navigate to **API Access** page under Advanced in **Sharepoint Admin Center** and approve the below permissions.
+Once the app package is uploaded, navigate to **API Access** page under **Advanced** in **Sharepoint Admin Center** and approve the below permissions.
 <img src="images/API Access in SP.png"/>
 
 ### Step 5. Create and Install Teams App
@@ -64,11 +66,17 @@ Once the app package is uploaded, navigate to **API Access** page under Advanced
 <img src="images/Azureportal, webapplicationid.png"/>
 
 2.	Download [teams.zip](https://github.com/swatiarora11/daily-update-webpart/blob/45b8206e94b8308dbf48cbb7acefc90cc048f21d/teams.zip) file from this git repository and extract the same to a local folder.
-3.	Change following fields in "developer" section of the downloaded **manifest.json** file to values as appropriate for your organization.
+3.	Change following fields in "developer" & Static tabs section of the downloaded **manifest.json** file to values as appropriate for your organization.
 * name
 * websiteUrl
 * privacyUrl
 * termsOfUseUrl
+
+* Content url
+* Website url
+
+**Note** : If Viva Connections site is already deployed as app in Teams, you must use the same manifest and simply update the webapplicationinfo section with Application (client id), mentioned in the step below.
+
 4.	Change the "id" field under "webApplicationInfo" section in the manifest to "Application (client) ID" value of **Sharepoint Online Client Extensibility Web application Principal** as copied in serial 1 above and save **manifest.json** file. 
 5.	Create a ZIP package with **manifest.json** and app icon files (**color.png** and **outline.png**). Make sure that there are no nested folders within this ZIP package.
 6.	Navigate to Microsoft Teams Admin Center. Under **Teams apps > Manage apps** section, click **+ Upload** and upload ZIP package file created in the previous step. Once upload is complete, you will be able to see the Connections app under the **Manage apps** tab as shown below.<img src="images/manage teams-teams admin center.png"/>
