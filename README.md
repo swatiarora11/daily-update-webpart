@@ -43,6 +43,14 @@ Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/c
 * Rename the **Title** column to **Author** and add **Live**, **Update** columns to the list and select the type as shown below.<img src="images/sharepoint list-settings.png"/>
 **Note:** Do not create columns with name **ID**, **Title**, **Created by** and **Modified by** as they exist by default in the list <img src="images/Sharepoint Site-list.png"/>
 
+* **Indexed Columns** Go to the Chairman Speak **List Settings -> Indexed Columns**. In the **Primary Column** dropdown select **Live** and then create.
+
+<img src="images/List Settings.png"/>
+<img src="images/Indexed Columns.png"/>
+<img src="images/Create Index-Live.png"/>
+
+
+
 ### Step 3. Upload SPPKG to Sharepoint App Catalog
 1. Download the [Sharepoint Solution Package](https://github.com/swatiarora11/daily-update-webpart/blob/45b8206e94b8308dbf48cbb7acefc90cc048f21d/sppkg/daily-update-webpart.sppkg) file from this repository and save the file to your computer.
 
