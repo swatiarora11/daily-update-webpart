@@ -1,5 +1,6 @@
 import { IGroup } from "../../models";
-import { Services } from "../../services";
+import { Services, Utils } from "../../services";
+import customLogger from "../../logging/CustomLogger";
 
 export class DailyUpdate {
   private services: Services = undefined;
@@ -46,20 +47,52 @@ export class DailyUpdate {
   }
 
   public async sendTeamsFeed(group: IGroup, teamsAppId: string, adminUpn: string) {
+
     if(group && teamsAppId != "" && adminUpn != "") {      
       const upns = await this.services.getGroupMembers(group?.id);
+
       for(var index: number=0; upns && index < upns.length; index++) {
+        var success: boolean = false;
+        var error: any = undefined;
+        var message: string = "";
+
         if(upns[index].toLowerCase() !== adminUpn.toLowerCase()) {
           const teamsAppUser = await this.services.getUser(upns[index]);
+
           if(teamsAppUser) {
             const teamsAppInstance = await this.services.getTeamsAppInstance(teamsAppUser?.id, teamsAppId); 
+
             if(teamsAppInstance) { 
-              console.log("sending feed to " + teamsAppUser?.displayName);
-              this.services.sendActivityFeedUser(teamsAppUser?.id, teamsAppInstance?.id, "click here to see the latest");
+              error = await this.services.sendActivityFeedUser(teamsAppUser?.id, teamsAppInstance?.id, "click here to see the latest");
+              if(!error) {
+                success = true;
+              } 
+              else if(error.statusCode === 429) {
+                var sleepDuration: number = Number(error?.retryAfter);
+                sleepDuration = !isNaN(sleepDuration) ? sleepDuration + 1 : 5;
+                console.log("too many requests; waiting " + sleepDuration + " seconds..."); 
+                await Utils.delay(sleepDuration * 1000);
+                
+                error = await this.services.sendActivityFeedUser(teamsAppUser?.id, teamsAppInstance?.id, "click here to see the latest");
+                if(!error) {
+                  success = true;
+                  message = "throttling threshold exceeded";  
+                }
+              }
             }
           }
+          customLogger.Log({
+            ComponentName: "DailyUpdate",
+            MethodName: "sendTeamsFeed: " + upns[index],
+            Message: (success ? "Success: " + message : "Error: " + error?.message)
+          });                 
         }
-      } 
+      }
+      customLogger.Log({
+        ComponentName: "DailyUpdate",
+        MethodName: "sendTeamsFeed",
+        Message: "Success: activity feed job finished"
+      });  
     }
   }
 }

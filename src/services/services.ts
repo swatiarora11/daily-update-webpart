@@ -1,6 +1,7 @@
 import { ListItem, TeamsAppDefinition } from "@microsoft/microsoft-graph-types";
 import { BaseComponentContext } from "@microsoft/sp-component-base";
 import { MSGraphClient } from "@microsoft/sp-http";
+// import customLogger from "../logging/CustomLogger";
 import { IGroup, IGroupCollection, IUser, ITeamsAppCollection } from "../models";
 
 export class Services {
@@ -229,12 +230,46 @@ export class Services {
         };
 
         this._context.msGraphClientFactory
-          .getClient()
+        .getClient()
           .then((client: MSGraphClient) => {
             client
               .api(`/users/${feedUserId}/teamwork/sendActivityNotification`)
               .post(notificationBody, (error: any, result: any, rawResponse: any) => {
-                resolve(result);
+                  resolve(error);
+              });
+          });
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
+
+  public sendActivityFeedUser1 = (
+    feedUserId: string,
+    appInstallationId: string,
+    feedPreviewText: string
+  ): Promise<any> => {
+    return new Promise<any>((resolve, reject) => {
+      try {
+        const endpoint: string = `https://graph.microsoft.com/v1.0/users/${feedUserId}/teamwork/installedApps/${appInstallationId}`;
+        const notificationBody: any = {
+          topic: {
+            source: "entityUrl",
+            value: endpoint,
+          },
+          activityType: "readThisRequired1",
+          previewText: {
+            content: feedPreviewText,
+          }
+        };
+
+        this._context.msGraphClientFactory
+        .getClient()
+          .then((client: MSGraphClient) => {
+            client
+              .api(`/users/${feedUserId}/teamwork/sendActivityNotification`)
+              .post(notificationBody, (error: any, result: any, rawResponse: any) => {
+                  resolve(error);
               });
           });
       } catch (error) {
@@ -243,5 +278,6 @@ export class Services {
     });
   }
 }
+
 
 

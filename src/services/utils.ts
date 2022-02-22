@@ -20,4 +20,12 @@ export class Utils {
         }
         return options;
     }
+
+    /** Delay in milliseconds
+     * @param ms time duration in milliseconds
+     */
+    public static delay(ms: number)
+    {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
 }
