@@ -42,6 +42,7 @@ Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/c
 #### Create "Chairman Speak" List
 * Open **Site Contents** page on the Viva Connections site. Select **New -> List** then select **Blank List** and enter the name of the List as "Chairman Speak".
 * Rename the **Title** column to **Author** and add **Live**, **Update** columns to the list and select the type as shown below.<img src="images/sharepoint list-settings.png"/>
+
 **Note:** Do not create columns with name **ID**, **Title**, **Created by** and **Modified by** as they exist by default in the list <img src="images/Sharepoint Site-list.png"/>
 
 * **Indexed Columns** Go to the Chairman Speak **List Settings -> Indexed Columns**. In the **Primary Column** dropdown select **Live** and then create.
@@ -53,6 +54,7 @@ Refer the documentation available [here](https://docs.microsoft.com/en-us/viva/c
 #### Create "DailyUpdateWebpartLogs" List
 * Open **Site Contents** page on the Viva Connections site. Select **New -> List** then select **Blank List** and enter the name of the List as "DailyUpdateWebpartLogs".
 * Rename the **Title** column to **ComponentName** and add **MethodName**, **Message**, **LogType**, **Date** columns to the list and select the type as shown below.<img src="images/sharepoint log-list-settings.png"/>
+
 **Note:** Do not create columns with name **ID**, **Title**, **Created by** and **Modified by** as they exist by default in the list <img src="images/Sharepoint log-list.png"/>
 
 ### Step 3. Upload SPPKG to Sharepoint App Catalog
